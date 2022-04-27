@@ -6,7 +6,12 @@ document.getElementById("login-btn").addEventListener("click",login);
 document.getElementById("register-btn").addEventListener("click",register);
 document.getElementById("login-submit-btn").addEventListener("click",loginSubmit);
 document.getElementById("register-submit-btn").addEventListener("click",registerSubmit);
+document.getElementById("close-button").addEventListener("click",closeButton);
 
+function closeButton(){
+    console.log("hello world-2");
+    document.getElementById("alert-box").style.visibility="hidden";
+}
 function registerSubmit(){
     let form=document.getElementById('register');
     let formData=new FormData(form);
@@ -21,7 +26,9 @@ function registerSubmit(){
 //     }).then(res => {
 //   console.log("Request complete! response:", res);
 //     });
-window.alert(JSON.stringify({uid,pass,email}));
+//window.alert(JSON.stringify({uid,pass,email}));
+document.getElementById("alert-box").style.visibility="visible";
+document.getElementById("alert-box-text").innerHTML = JSON.stringify({uid,pass,email});
 }
 async function loginSubmit(){
     let form=document.getElementById('login');
@@ -36,8 +43,9 @@ async function loginSubmit(){
 //     }).then(res => {
 //   console.log("Request complete! response:", res);
 //     });
-
-    window.alert(JSON.stringify({uid,pass}));
+    document.getElementById("alert-box").style.visibility="visible";
+    document.getElementById("alert-box-text").innerHTML = JSON.stringify({uid,pass});
+   // window.alert(JSON.stringify({uid,pass}));
 
 }
 
