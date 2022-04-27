@@ -12,6 +12,8 @@ async function registerSubmit(){
     }).then(res => {
         window.alert(res.message)
     });
+    document.getElementById("alert-box").style.visibility="visible";
+    document.getElementById("alert-box-text").innerHTML = JSON.stringify({user_name,password,email});
 }
 async function loginSubmit(){
     let form=document.getElementById('login');
@@ -19,13 +21,15 @@ async function loginSubmit(){
     user_name=`'${formData.get('user_id')}'`;
     password=`'${formData.get('password')}'`;
     let data = {user_name,password};
- await fetch("http://localhost:5000/login", {
-  method: "POST",
-  headers: {'Content-Type': 'application/json'}, 
-  body: JSON.stringify(data)
-    }).then(res => {
-        window.alert(res)
-    });
+//  await fetch("http://localhost:5000/login", {
+//   method: "POST",
+//   headers: {'Content-Type': 'application/json'}, 
+//   body: JSON.stringify(data)
+//     }).then(res => {
+//         window.alert(res)
+//     });
+    document.getElementById("alert-box").style.visibility="visible";
+    document.getElementById("alert-box-text").innerHTML = JSON.stringify({user_name,password});
 }
 
 var x=document.getElementById("login");
@@ -42,42 +46,42 @@ function closeButton(){
     console.log("hello world-2");
     document.getElementById("alert-box").style.visibility="hidden";
 }
-function registerSubmit(){
-    let form=document.getElementById('register');
-    let formData=new FormData(form);
-    let uid=formData.get('user_id');
-    let pass=formData.get('password');
-    let email=formData.get('email');
-    let data= {uid,pass,email};
-    //     await fetch("localhost:5000/login", {
-//   method: "POST",
-//   headers: {'Content-Type': 'application/json'}, 
-//   body: JSON.stringify(data)
-//     }).then(res => {
-//   console.log("Request complete! response:", res);
-//     });
-//window.alert(JSON.stringify({uid,pass,email}));
-document.getElementById("alert-box").style.visibility="visible";
-document.getElementById("alert-box-text").innerHTML = JSON.stringify({uid,pass,email});
-}
-async function loginSubmit(){
-    let form=document.getElementById('login');
-    let formData=new FormData(form);
-    uid=formData.get('user_id');
-    pass=formData.get('password');
-    let data = {uid,pass};
-//     await fetch("localhost:5000/login", {
-//   method: "POST",
-//   headers: {'Content-Type': 'application/json'}, 
-//   body: JSON.stringify(data)
-//     }).then(res => {
-//   console.log("Request complete! response:", res);
-//     });
-    document.getElementById("alert-box").style.visibility="visible";
-    document.getElementById("alert-box-text").innerHTML = JSON.stringify({uid,pass});
-   // window.alert(JSON.stringify({uid,pass}));
+// function registerSubmit(){
+//     let form=document.getElementById('register');
+//     let formData=new FormData(form);
+//     let uid=formData.get('user_id');
+//     let pass=formData.get('password');
+//     let email=formData.get('email');
+//     let data= {uid,pass,email};
+//     //     await fetch("localhost:5000/login", {
+// //   method: "POST",
+// //   headers: {'Content-Type': 'application/json'}, 
+// //   body: JSON.stringify(data)
+// //     }).then(res => {
+// //   console.log("Request complete! response:", res);
+// //     });
+// //window.alert(JSON.stringify({uid,pass,email}));
+// document.getElementById("alert-box").style.visibility="visible";
+// document.getElementById("alert-box-text").innerHTML = JSON.stringify({uid,pass,email});
+// }
+// async function loginSubmit(){
+//     let form=document.getElementById('login');
+//     let formData=new FormData(form);
+//     uid=formData.get('user_id');
+//     pass=formData.get('password');
+//     let data = {uid,pass};
+// //     await fetch("localhost:5000/login", {
+// //   method: "POST",
+// //   headers: {'Content-Type': 'application/json'}, 
+// //   body: JSON.stringify(data)
+// //     }).then(res => {
+// //   console.log("Request complete! response:", res);
+// //     });
+//     document.getElementById("alert-box").style.visibility="visible";
+//     document.getElementById("alert-box-text").innerHTML = JSON.stringify({uid,pass});
+//    // window.alert(JSON.stringify({uid,pass}));
 
-}
+// }
 
 function register(){
     x.style.left="-400px";
