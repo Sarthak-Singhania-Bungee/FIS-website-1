@@ -24,12 +24,10 @@ def welcome():
 def login():
     x=request.get_json()
     cursor = mysql.connection.cursor(cur.DictCursor)
-    print(x)
-    cursor.execute(f"select exists(select users.User_Name from users,password where password.Password={x['password']}) as login")
+    cursor.execute(f"select exists(selec[t users.User_Name from users,password where password.Password={x['password']}) as login")
     # a=f"select exists(select from users, password where users.User_Name={x['user_name']} and password.Password={x['password']})"
     # print(a)
     a=cursor.fetchone()
-    print(a)
     return make_response({'message':a})
 
 @app.post('/register')
